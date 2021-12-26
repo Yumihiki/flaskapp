@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Welcome to FlaskApp {% endblock %}</h1>
+    {% for post in posts %}
+        <a href="{{ url_for('post', post_id=post['id']) }}">
+            <h2 font-bold>{{ post['title'] }}</h2>
+        </a>
+        <a href="{{ url_for('edit', id=post['id']) }}">
+            <h3 class="badge bg-danger">Edit</h3>
+        </a>
+        <hr>
+    {% endfor %}
+{% endblock %}
